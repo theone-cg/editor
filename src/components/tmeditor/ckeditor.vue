@@ -6,6 +6,10 @@
 import Ckeditor from './ckeditor'
 export default {
   name: 'ckeditor',
+  model: {
+    'props': 'value',
+    'event': 'on-change'
+  },
   props: {
     value: String,
     default: () => ''
@@ -14,7 +18,8 @@ export default {
     return {
       editorData: '',
       editor: null,
-      editorDocument: null
+      editorDocument: null,
+      lastData: ''
     }
   },
   created() {
@@ -25,30 +30,47 @@ export default {
       customToolbar: 'gtest'
     }).then(editor => {
       this.editor = editor
-      this.$emit('on-ready', editor)
+      this.init()
     }).catch(err => {
       console.log(err)
     })
   },
+  watch: {
+    value(newValue, oldValue) {
+      if (newValue !== oldValue && newValue !== this.lastData) {
+        this.editor.setData(newValue)
+      }
+    }
+  },
   methods: {
-    handleBlur(editor) {
+    init() {
+      const editor = this.editor
+      const view = editor.editing.view
 
-    },
-    handleFocus(editor) {
+      this.$emit('on-ready', editor)
 
-    },
-    handleSelection(editor) {
-
+      view.document.on('focus', (evt) => {
+        this.$emit('on-focus', evt, editor)
+      })
+      view.document.on('blur', (evt) => {
+        this.$emit('on-blur', evt, editor)
+      })
+      editor.model.document.on('change:data', _.debounce(evt => {
+        const data = editor.getData()
+        this.lastData = data
+        this.$emit('on-change', data, evt, editor)
+      }, 300))
     },
     focus() {
       this.editor.editing.view.focus()
     }
   },
   beforeDestroy() {
-    let editorEl = _.get(this.editor, 'ui.view.element')
-    if (editorEl) {
-      editorEl.parentNode.removeChild(editorEl)
+    if (this.editor) {
+      this.editor.destroy()
+      this.editor = null
     }
+    this.$emit('on-destroy', this.editor)
   }
 }
 </script>

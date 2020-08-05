@@ -5,6 +5,7 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
+    "lib:tmeditor": "vue-cli-service build --target lib --name tmeditor --dest tmeditor src/components/tmeditor/index.js",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
