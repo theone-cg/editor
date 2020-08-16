@@ -22,6 +22,11 @@ Vue.use(VueRouter)
     path: '/editor',
     name: 'Editor',
     component: () => import('../views/Editor.vue')
+  },
+  {
+    path: '/custom',
+    name: 'Custom',
+    component: () => import('../views/Custom.vue')
   }
 ]
 

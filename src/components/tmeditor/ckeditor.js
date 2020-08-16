@@ -40,98 +40,98 @@ export default class ClassicEditor extends ClassicEditorBase {}
 
 // Plugins to include in the build.
 ClassicEditor.builtinPlugins = [
-	FontSize,
-	FontColor,
-	FontBackgroundColor,
-	Alignment,
-	Essentials,
-	// UploadAdapter,
-	Base64UploadAdapter,
-	Autoformat,
-	Bold,
-	Italic,
-	// BlockQuote,
-	CKFinder,
-	EasyImage,
-	Heading,
-	Image,
-	ImageCaption,
-	ImageStyle,
-	ImageToolbar,
-	ImageUpload,
-	// Indent,
-	Link,
-	List,
-	// MediaEmbed,
-	Paragraph,
-	PasteFromOffice,
-	Table,
-	TableToolbar,
-	TextTransformation
+  FontSize,
+  FontColor,
+  FontBackgroundColor,
+  Alignment,
+  Essentials,
+  // UploadAdapter,
+  Base64UploadAdapter,
+  Autoformat,
+  Bold,
+  Italic,
+  // BlockQuote,
+  CKFinder,
+  EasyImage,
+  Heading,
+  Image,
+  ImageCaption,
+  ImageStyle,
+  ImageToolbar,
+  ImageUpload,
+  // Indent,
+  Link,
+  List,
+  // MediaEmbed,
+  Paragraph,
+  PasteFromOffice,
+  Table,
+  TableToolbar,
+  TextTransformation
 ];
 
 // Editor configuration.
 ClassicEditor.defaultConfig = {
-	toolbar: {
-		items: [
-			'heading',
-			'fontSize',
-			'|',
-			'bold',
-			'italic',
-			'link',
-			'bulletedList',
-			'numberedList',
-			'|',
-			'fontColor',
-			'fontBackgroundColor',
-			'|',
-			// 'indent',
-			// 'outdent',
-			'alignment:left',
-			'alignment:center',
-			'alignment:right',
-			'|',
-			'imageUpload',
-			// 'blockQuote',
-			'insertTable',
-			// 'mediaEmbed',
-			'undo',
-			'redo'
-		]
-	},
-	heading: {
-		options: [
-			{ model: 'paragraph', title: 'Paragraph', class: 'ck-heading_paragraph' },
-			{ model: 'heading1', view: 'h1', title: 'Heading 1', class: 'ck-heading_headng1' },
-			{ model: 'heading2', view: 'h2', title: 'Heading 2', class: 'ck-heading_headng2' },
-			{ model: 'heading3', view: 'h3', title: 'Heading 3', class: 'ck-heading_headng3' },
-			{ model: 'heading4', view: 'h4', title: 'Heading 4', class: 'ck-heading_headng4' },
-			{ model: 'heading5', view: 'h5', title: 'Heading 5', class: 'ck-heading_headng5' },
-			{ model: 'heading6', view: 'h6', title: 'Heading 6', class: 'ck-heading_headng6' }
-		]
-	},
-	fontSize: {
-		options: [
-			9, 11, 13, 'default', 17, 19, 21
-		]
-	},
-	image: {
-		toolbar: [
-			'imageStyle:full',
-			'imageStyle:side',
-			'|',
-			'imageTextAlternative'
-		],
-		types: ['png', 'jpg', 'jpeg', 'gif']
-	},
-	table: {
-		contentToolbar: [
-			'tableColumn',
-			'tableRow',
-			'mergeTableCells'
-		]
-	},
-	// This value must be kept in sync with the language defined in webpack.config.js.
-	language: 'en'
+  toolbar: {
+    items: [
+      'heading',
+      'fontSize',
+      '|',
+      'bold',
+      'italic',
+      'link',
+      'bulletedList',
+      'numberedList',
+      '|',
+      'fontColor',
+      'fontBackgroundColor',
+      '|',
+      // 'indent',
+      // 'outdent',
+      'alignment:left',
+      'alignment:center',
+      'alignment:right',
+      '|',
+      'imageUpload',
+      // 'blockQuote',
+      'insertTable',
+      // 'mediaEmbed',
+      'undo',
+      'redo'
+    ]
+  },
+  heading: {
+    options: [
+      { model: 'paragraph', title: 'Paragraph', class: 'ck-heading_paragraph' },
+      { model: 'heading1', view: 'h1', title: 'Heading 1', class: 'ck-heading_headng1' },
+      { model: 'heading2', view: 'h2', title: 'Heading 2', class: 'ck-heading_headng2' },
+      { model: 'heading3', view: 'h3', title: 'Heading 3', class: 'ck-heading_headng3' },
+      { model: 'heading4', view: 'h4', title: 'Heading 4', class: 'ck-heading_headng4' },
+      { model: 'heading5', view: 'h5', title: 'Heading 5', class: 'ck-heading_headng5' },
+      { model: 'heading6', view: 'h6', title: 'Heading 6', class: 'ck-heading_headng6' }
+    ]
+  },
+  fontSize: {
+    options: [
+      9, 11, 13, 'default', 17, 19, 21
+    ]
+  },
+  image: {
+    toolbar: [
+      'imageStyle:full',
+      'imageStyle:side',
+      '|',
+      'imageTextAlternative'
+    ],
+    types: ['png', 'jpg', 'jpeg', 'gif']
+  },
+  table: {
+    contentToolbar: [
+      'tableColumn',
+      'tableRow',
+      'mergeTableCells'
+    ]
+  },
+  // This value must be kept in sync with the language defined in webpack.config.js.
+  language: 'en'
 };

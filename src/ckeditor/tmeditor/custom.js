@@ -38,34 +38,34 @@ const getFontStyle = (evt, editor) => {
   return style
 }
 
-export default class RakutenPlugin extends Plugin {
+export default class Custom extends Plugin {
   init() {
     const editor = this.editor
+    let execFontStyle = null
 
-    const config = editor.config.get('rakuten')
-    const element = config.el
-    element.addEventListener('click', () => {
-      editor.editing.view.focus()
-    })
+    const customConfig = editor.config.get('custom')
+    if (_.isFunction(customConfig.getFontStyle)) {
+      execFontStyle = customConfig.getFontStyle
+    }
     // editor.editing.view.document.on('selectionChange', (evt, data) => {
     //   console.log('selectionChange', data)
     // })
     // editor.editing.view.document.on('selectionChangeDone', (evt, data) => {
     //   console.log('selectionChangeDone', data)
     // })
-    editor.editing.view.document.on('click', evt => {
-      let fontStyle = getFontStyle(evt, editor)
-      console.log(fontStyle)
-    })
-    editor.editing.view.document.on('keyup', evt => {
-      let fontStyle = getFontStyle(evt, editor)
-      console.log(fontStyle)
-    })
-    editor.editing.view.document.on('focus', evt => {
-      // let bold = editor.plugins.get('Bold')
-      // let bc = editor.commands.get('bold')
-      // console.log(bold.isEnabled)
-      // console.log(bc.value)
-    })
+    if (execFontStyle) {
+      editor.editing.view.document.on('click', evt => {
+        let fontStyle = getFontStyle(evt, editor)
+        execFontStyle(fontStyle)
+      })
+      editor.editing.view.document.on('keyup', evt => {
+        let fontStyle = getFontStyle(evt, editor)
+        execFontStyle(fontStyle)
+      })
+      editor.editing.view.document.on('focus', evt => {
+        let fontStyle = getFontStyle(evt, editor)
+        execFontStyle(fontStyle)
+      })
+    }    
   }
 }

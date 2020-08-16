@@ -29,6 +29,7 @@
     "@ckeditor/ckeditor5-dev-webpack-plugin": "^20.0.0",
     "@ckeditor/ckeditor5-easy-image": "^20.0.0",
     "@ckeditor/ckeditor5-editor-classic": "^20.0.0",
+    "@ckeditor/ckeditor5-editor-inline": "^20.0.0",
     "@ckeditor/ckeditor5-enter": "^20.0.0",
     "@ckeditor/ckeditor5-essentials": "^20.0.0",
     "@ckeditor/ckeditor5-font": "^20.0.0",
@@ -59,6 +60,8 @@
     "less-loader": "^5.0.0",
     "postcss-loader": "^3.0.0",
     "raw-loader": "^0.5.1",
+    "svg-sprite-loader": "^5.0.0",
+    "url-loader": "^4.1.0",
     "vue-template-compiler": "^2.6.11"
   }
 }

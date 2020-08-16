@@ -35,10 +35,10 @@ module.exports = {
     //
     // * clear all loaders for existing 'svg' rule:
     //
-    // svgRule.uses.clear();
+    svgRule.uses.clear();
     //
     // * or exclude ckeditor directory from node_modules:
-    svgRule.exclude.add( path.join( __dirname, 'node_modules', '@ckeditor' ) );
+    // svgRule.exclude.add( path.join( __dirname, 'node_modules', '@ckeditor' ) );
 
     // Add an entry for *.svg files belonging to CKEditor. You can either:
     //
@@ -47,9 +47,15 @@ module.exports = {
       // svgRule.use( 'raw-loader' ).loader( 'raw-loader' );
     //
     // * or add a new one:
+    // config.module
+    //   .rule( 'cke-svg' )
+    //   .test( /ckeditor5-[^/\\]+[/\\]theme[/\\]icons[/\\][^/\\]+\.svg$/ )
+    //   .use( 'raw-loader' )
+    //   .loader( 'raw-loader' )
+
     config.module
       .rule( 'cke-svg' )
-      .test( /ckeditor5-[^/\\]+[/\\]theme[/\\]icons[/\\][^/\\]+\.svg$/ )
+      .test( /\.svg$/ )
       .use( 'raw-loader' )
       .loader( 'raw-loader' )
 

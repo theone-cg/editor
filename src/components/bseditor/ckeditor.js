@@ -1,4 +1,4 @@
-// 编辑器的基基础创建类
+// 编辑器的基础创建类
 import Editor from '@ckeditor/ckeditor5-core/src/editor/editor'
 import EditorUI from '@ckeditor/ckeditor5-core/src/editor/editorui'
 import EditorUIView from '@ckeditor/ckeditor5-ui/src/editorui/editoruiview'
